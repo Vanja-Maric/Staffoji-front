@@ -2,7 +2,6 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cscloud8-221.lnu.se/staffoji/",
   "dependencies": {
     "@babel/preset-react": "^7.23.3",
     "@emotion/react": "^11.10.6",
