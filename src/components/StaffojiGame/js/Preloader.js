@@ -105,10 +105,36 @@ import b1 from '../images/trebleNotes/b1.webp'
 import ciss2 from '../images/trebleNotes/ciss2.webp'
 import d2 from '../images/trebleNotes/d2.webp'
 import e2 from '../images/trebleNotes/e2.webp'
+
+// violin extra
 import fiss2 from '../images/trebleNotes/fiss2.webp'
 import giss2 from '../images/trebleNotes/giss2.webp'
 import a2 from '../images/trebleNotes/a2.webp'
 import b2 from '../images/trebleNotes/b2.webp'
+
+
+// piano extra
+import giss from '../images/trebleNotes/giss.webp'
+import aiss from '../images/trebleNotes/aiss.webp'
+import ciss1 from '../images/trebleNotes/ciss1.webp'
+import diss1 from '../images/trebleNotes/diss1.webp'
+import f1 from '../images/trebleNotes/f1.webp'
+import giss1 from '../images/trebleNotes/giss1.webp'
+import aiss1 from '../images/trebleNotes/aiss1.webp'
+import c2 from '../images/trebleNotes/c2.webp'
+import diss2 from '../images/trebleNotes/diss2.webp'
+
+// Guitar extra
+import fiss from '../images/trebleNotes/fiss.webp'
+import f from '../images/trebleNotes/f.webp'
+import e from '../images/trebleNotes/e.webp'
+
+// Flute extra
+import f2 from '../images/trebleNotes/f2.webp'
+import g2 from '../images/trebleNotes/g2.webp'
+import c3 from '../images/trebleNotes/c3.webp'
+import d3 from '../images/trebleNotes/d3.webp'
+
 
 // Notes - alt
 import calto from '../images/altNotes/c.webp'
@@ -139,13 +165,26 @@ import A from '../images/bassNotes/A.webp'
 import B from '../images/bassNotes/B.webp'
 import c from '../images/bassNotes/c-small.webp'
 import d from '../images/bassNotes/d-small.webp'
-import e from '../images/bassNotes/e-small.webp'
-import fiss from '../images/bassNotes/fiss-small.webp'
+import ebass from '../images/bassNotes/e-small.webp'
+import fissbass from '../images/bassNotes/fiss-small.webp'
 import gBass from '../images/bassNotes/g-small.webp'
 import aBass from '../images/bassNotes/a-small.webp'
 import bBass from '../images/bassNotes/b-small.webp'
 import ciss1Bass from '../images/bassNotes/ciss1.webp'
 import d1Bass from '../images/bassNotes/d1.webp'
+
+
+// Piano extra
+import diss1Bass from '../images/bassNotes/diss1.webp'
+import c1Bass from '../images/bassNotes/c1.webp'
+import aissBass from '../images/bassNotes/aiss.webp'
+import gissBass from '../images/bassNotes/giss.webp'
+import fBass from '../images/bassNotes/fsmall.webp'
+import diss from '../images/bassNotes/diss.webp'
+import ciss from '../images/bassNotes/ciss.webp'
+import Aiss from '../images/bassNotes/Aiss-big.webp'
+import Giss from '../images/bassNotes/Giss-big.webp'
+import Fiss from '../images/bassNotes/Fiss-big.webp'
 
 // Arrows
 import arrowRight from '../images/arrows/right.png'
@@ -289,17 +328,39 @@ class Preloader extends Phaser.Scene {
     this.load.image('c1', c1)
     this.load.image('d1', d1)
     this.load.image('e1', e1)
-    this.load.image('f#1', fiss1)
+    this.load.image('fiss1', fiss1)
     this.load.image('g1', g1)
     this.load.image('a1', a1)
     this.load.image('b1', b1)
-    this.load.image('c#2', ciss2)
+    this.load.image('ciss2', ciss2)
     this.load.image('d2', d2)
     this.load.image('e2', e2)
-    this.load.image('f#2', fiss2)
-    this.load.image('g#2', giss2)
+    this.load.image('fiss2', fiss2)
+    this.load.image('giss2', giss2)
     this.load.image('a2', a2)
     this.load.image('b2', b2)
+
+    // Piano extra
+    this.load.image('giss', giss)
+    this.load.image('aiss', aiss)
+    this.load.image('ciss1', ciss1)
+    this.load.image('diss1', diss1)
+    this.load.image('f1', f1)
+    this.load.image('giss1', giss1)
+    this.load.image('aiss1', aiss1)
+    this.load.image('c2', c2)
+    this.load.image('diss2', diss2)
+
+    // Guitar extra
+    this.load.image('fiss', fiss)
+    this.load.image('f', f)
+    this.load.image('e', e)
+
+    // Flute extra
+    this.load.image('f2', f2)
+    this.load.image('g2', g2)
+    this.load.image('c3', c3)
+    this.load.image('d3', d3)
 
     // Notes (alto) 112 x 112
     this.load.image('c-Alto', calto)
@@ -330,13 +391,23 @@ class Preloader extends Phaser.Scene {
     this.load.image('B-Bass', B)
     this.load.image('c-Bass', c)
     this.load.image('d-Bass', d)
-    this.load.image('e-Bass', e)
-    this.load.image('fiss-Bass', fiss)
+    this.load.image('e-Bass', ebass)
+    this.load.image('fiss-Bass', fissbass)
     this.load.image('g-Bass', gBass)
     this.load.image('a-Bass', aBass)
     this.load.image('b-Bass', bBass)
     this.load.image('ciss1-Bass', ciss1Bass)
     this.load.image('d1-Bass', d1Bass)
+    this.load.image('diss1-Bass', diss1Bass)
+    this.load.image('c1-Bass', c1Bass)
+    this.load.image('aiss-Bass', aissBass)
+    this.load.image('giss-Bass', gissBass)
+    this.load.image('f-Bass', fBass)
+    this.load.image('diss-Bass', diss)
+    this.load.image('ciss-Bass', ciss)
+    this.load.image('Aiss-Bass', Aiss)
+    this.load.image('Giss-Bass', Giss)
+    this.load.image('Fiss-Bass', Fiss)
 
     // Arrows 50 x 28
     this.load.image('arrowRight', arrowRight)

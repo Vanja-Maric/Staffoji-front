@@ -16,6 +16,8 @@ class Options extends Phaser.Scene {
 
     if (this.instrument === 'violin') {
       this.createViolinOrViolaButtons()
+    } else {
+      this.setClefIfNotVIolinOrViola()
     }
   }
 
@@ -36,7 +38,6 @@ class Options extends Phaser.Scene {
     console.log(this.audio)
     this.musicMenu = this.registry.get('musicMenu')
     this.selectedClef = 'treble'
-    this.registry.set('selectedClef', this.selectedClef)
   }
 
   getToneVolumenLowerBorder() {
@@ -106,6 +107,17 @@ class Options extends Phaser.Scene {
       this.scene.start('Menu')
       this.cameras.main.fadeIn(500)
     })
+  }
+
+  setClefIfNotVIolinOrViola() {
+    
+    if (this.instrument === 'cello' || this.instrument === 'bassInstrument') {
+      this.selectedClef = 'bass'
+    } else {
+      this.selectedClef = 'treble'
+    }
+    this.registry.set('instrument', this.instrument)
+    this.registry.set('selectedClef', this.selectedClef)
   }
 
   createViolinOrViolaButtons() {

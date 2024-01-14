@@ -495,8 +495,23 @@ class Play extends Phaser.Scene {
       case 'cello':
         numberOfNoteImages = 16
         break
-      default:
-        numberOfNoteImages = 17
+      case 'bassInstrument':
+        numberOfNoteImages = 12
+        break
+      case 'piano':
+        numberOfNoteImages = 22
+        break
+      case 'guitar':
+        numberOfNoteImages = 25
+        break
+      case 'flute':
+        numberOfNoteImages = 16
+        break
+      case 'blockFl': 
+        numberOfNoteImages = 16
+        break
+        default:
+        numberOfNoteImages = 12
     }
     return numberOfNoteImages
   }
@@ -507,6 +522,7 @@ class Play extends Phaser.Scene {
    * @returns {integer[]} The random numbers.
    */
   generateRandomNumbersForNoteImages(numberOfNoteImages) {
+    console.log('number of note images', numberOfNoteImages)
     const randomNumber1 = Math.floor(Math.random() * numberOfNoteImages)
     let randomNumber2 = Math.floor(Math.random() * numberOfNoteImages)
     let randomNumber3 = Math.floor(Math.random() * numberOfNoteImages)
@@ -855,7 +871,7 @@ class Play extends Phaser.Scene {
    */
   restartGame() {
     // Do not reload because of side effect eith stone dropping multiple times.
-    this.audio.stop()
+  
     this.destroy()
     this.scene.start('Play')
   }
