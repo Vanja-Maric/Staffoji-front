@@ -33,7 +33,7 @@ class Character extends Phaser.GameObjects.Sprite {
     this.stopJump = false
     this.isDead = false
     this.readyForMusic = false
-    this.cursor = this.scene.input.keyboard.createCursorKeys() // Comment this later to turn off keyboard controls
+    // this.cursor = this.scene.input.keyboard.createCursorKeys() // Comment this later to turn off keyboard controls
 
     this.anims.create({
       key: 'idle',
@@ -119,9 +119,9 @@ class Character extends Phaser.GameObjects.Sprite {
     }
 
     // Coment this later to turn off keyboard controls
-    this.jumpWithKeyboard()
-    this.goLeftWithKeyboard()
-    this.goRightWithKeyboard()
+    // this.jumpWithKeyboard()
+    // this.goLeftWithKeyboard()
+    // this.goRightWithKeyboard()
   }
 
   startListenForAnyToneToDoFirstMove() {
@@ -191,28 +191,28 @@ class Character extends Phaser.GameObjects.Sprite {
     this.detectedTone = null // Reset the detected tone to null to prevent continuous dying
   }
 
-  jumpWithKeyboard() {
+  /* jumpWithKeyboard() {
     if (this.cursor.up.isDown && this.body.touching.down) {
       this.body.setVelocityY(-590)
       this.anims.play('player_jump', true)
     }
-  }
+  }*/
 
-  goLeftWithKeyboard() {
+  /*goLeftWithKeyboard() {
     if (this.cursor.left.isDown) {
       this.body.setVelocityX(-160)
       this.flipX = true
       this.anims.play('player_walk', true)
     }
-  }
+  }*/
 
-  goRightWithKeyboard() {
+ /* goRightWithKeyboard() {
     if (this.cursor.right.isDown) {
       this.body.setVelocityX(160)
       this.flipX = false
       this.anims.play('player_walk', true)
     }
-  }
+  }*/
 
   /**
    * Sets the tones to detect for player movement.
