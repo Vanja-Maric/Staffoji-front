@@ -43,7 +43,6 @@ export function createPlatforms1(scene) {
   platforms.create(714, 638, 'groundBrownCurlyRight')
   platforms.create(714, 574, 'groundBrownCurlyRight')
   platforms.create(714, 514, 'groundBrownGreenCurlyRight')
-  
 
   //pl2 - ground
   platforms.create(958, 638, 'groundBrownCurlyLeft')
@@ -99,7 +98,7 @@ export function createPlatforms1(scene) {
   platforms.create(1636, 514, 'groundBrown')
   platforms.create(1636, 450, 'groundBrown')
   platforms.create(1636, 386, 'groundBrown')
-  platforms.create(1636, 322, 'groundBrownGreenUp') 
+  platforms.create(1636, 322, 'groundBrownGreenUp')
 
   // Going down now
   platforms.create(1698, 638, 'groundBrown')
@@ -142,7 +141,6 @@ export function createPlatforms1(scene) {
   platforms.create(2720, 574, 'groundBrownGreenUp')
   platforms.create(2784, 638, 'groundBrown')
   platforms.create(2784, 574, 'groundBrownGreenUp')
-
 
   platforms.refresh()
 

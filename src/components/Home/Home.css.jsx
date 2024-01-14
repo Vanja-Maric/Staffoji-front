@@ -12,13 +12,28 @@ export const HomeCss = css`
 
   h1 {
     margin: 0;
-    font-size: 60px;
+    font-size: 54px;
     margin-bottom: 30px;
     text-align: center;
   }
 
+  #contributions {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  #contributions a {
+    text-decoration: underline;
+    pointer-events: auto;
+  }
+
+  .alinkedin {
+    text-decoration: underline;
+    pointer-events: auto;
+  }
+
   p {
-    font-size: 30px;
+    font-size: 26px;
     margin-bottom: 20px;
     text-align: justify;
   }

@@ -5,7 +5,7 @@
  */
 export function createWater2(scene) {
   const water = scene.physics.add.staticGroup()
-  
+
   // W1
   water.create(2616, 638, 'water')
   water.create(2616, 584, 'waterCurly')

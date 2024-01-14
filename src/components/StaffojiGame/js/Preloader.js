@@ -3,6 +3,7 @@ import Phaser from 'phaser'
 // Attribution for game objects, tiles, character, gui: https://www.gameart2d.com/license.html
 // Logo
 import logo from '../images/logo.png'
+import serzLogo from '../images/serzLogo.png'
 // Menu
 // Attribution: https://opengameart.org/content/woodland-fantasy
 import menuMusic from '../audio/wlFantasy.mp3'
@@ -112,7 +113,6 @@ import giss2 from '../images/trebleNotes/giss2.webp'
 import a2 from '../images/trebleNotes/a2.webp'
 import b2 from '../images/trebleNotes/b2.webp'
 
-
 // piano extra
 import giss from '../images/trebleNotes/giss.webp'
 import aiss from '../images/trebleNotes/aiss.webp'
@@ -134,7 +134,6 @@ import f2 from '../images/trebleNotes/f2.webp'
 import g2 from '../images/trebleNotes/g2.webp'
 import c3 from '../images/trebleNotes/c3.webp'
 import d3 from '../images/trebleNotes/d3.webp'
-
 
 // Notes - alt
 import calto from '../images/altNotes/c.webp'
@@ -173,7 +172,6 @@ import bBass from '../images/bassNotes/b-small.webp'
 import ciss1Bass from '../images/bassNotes/ciss1.webp'
 import d1Bass from '../images/bassNotes/d1.webp'
 
-
 // Piano extra
 import diss1Bass from '../images/bassNotes/diss1.webp'
 import c1Bass from '../images/bassNotes/c1.webp'
@@ -210,6 +208,7 @@ class Preloader extends Phaser.Scene {
 
     // Logo
     this.load.image('logo', logo)
+    this.load.image('serzLogo', serzLogo)
 
     // Menu and buttons
     this.load.audio('menuMusic', menuMusic)

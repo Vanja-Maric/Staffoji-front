@@ -54,7 +54,7 @@ export function NavBar() {
 
   return (
     <div css={NavBarCss}>
-       <Router basename="/">
+      <Router basename="/">
         <div className="navigation">
           <input
             type="checkbox"

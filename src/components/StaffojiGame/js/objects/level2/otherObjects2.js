@@ -23,7 +23,6 @@ export function createOtherObjects2(scene) {
   otherObjects.create(950, 308, 'tree1')
   otherObjects.create(910, 308, 'bush3')
 
-
   // On 3rd platform
   otherObjects.create(2960, 519, 'tree1') // y - 55
   otherObjects.create(2940, 519, 'bush3')

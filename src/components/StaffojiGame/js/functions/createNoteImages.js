@@ -7,9 +7,7 @@
 export function createNoteImages(selectedInstrument) {
   let noteImages = []
   // console.log('selectedInstrument', selectedInstrument)
-  if (
-    selectedInstrument === 'violin'
-  ) {
+  if (selectedInstrument === 'violin') {
     noteImages = [
       { name: 'G3', image: 'g' },
       { name: 'A3', image: 'a' },
@@ -83,7 +81,7 @@ export function createNoteImages(selectedInstrument) {
       { name: 'A2', image: 'a-Bass' },
       { name: 'B2', image: 'b-Bass' },
     ]
-  } else if (selectedInstrument === 'piano') { 
+  } else if (selectedInstrument === 'piano') {
     noteImages = [
       { name: 'G3', image: 'g' },
       { name: 'G#3', image: 'giss' },
@@ -106,13 +104,13 @@ export function createNoteImages(selectedInstrument) {
       { name: 'C#5', image: 'ciss2' },
       { name: 'D5', image: 'd2' },
       { name: 'D#5', image: 'diss2' },
-      { name: 'E5', image: 'e2' }, 
+      { name: 'E5', image: 'e2' },
     ]
   } else if (selectedInstrument === 'pianoF') {
     noteImages = [
       { name: 'E2', image: 'E-Bass' },
       { name: 'F2', image: 'F-Bass' },
-      { name: 'F#2', image:  'Fiss-Bass' },
+      { name: 'F#2', image: 'Fiss-Bass' },
       { name: 'G2', image: 'G-Bass' },
       { name: 'G#2', image: 'Giss-Bass' },
       { name: 'A2', image: 'A-Bass' },
@@ -161,9 +159,12 @@ export function createNoteImages(selectedInstrument) {
       { name: 'C#5', image: 'ciss2' },
       { name: 'D5', image: 'd2' },
       { name: 'D#5', image: 'diss2' },
-      { name: 'E5', image: 'e2' }, 
+      { name: 'E5', image: 'e2' },
     ]
-  } else if (selectedInstrument === 'flute' || selectedInstrument === 'blockFl') {
+  } else if (
+    selectedInstrument === 'flute' ||
+    selectedInstrument === 'blockFl'
+  ) {
     noteImages = [
       { name: 'C4', image: 'c1' },
       { name: 'D4', image: 'd1' },
@@ -180,7 +181,7 @@ export function createNoteImages(selectedInstrument) {
       { name: 'A5', image: 'a2' },
       { name: 'B5', image: 'b2' },
       { name: 'C6', image: 'c3' },
-      { name: 'D6', image: 'd3' }, 
+      { name: 'D6', image: 'd3' },
     ]
   }
 

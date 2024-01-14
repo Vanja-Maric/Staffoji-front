@@ -17,6 +17,5 @@ export function createWater1(scene) {
   water.create(901, 574, 'water')
   water.create(901, 520, 'waterCurly')
 
-
   return water
 }

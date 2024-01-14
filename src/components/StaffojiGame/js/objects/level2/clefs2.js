@@ -31,7 +31,6 @@ export function createClefs2(scene, selectedClef) {
     selectedClef
   ) // On second platform after stairs
 
-
   const tweenConfig = {
     targets: clefs.getChildren(),
     y: '+=10',

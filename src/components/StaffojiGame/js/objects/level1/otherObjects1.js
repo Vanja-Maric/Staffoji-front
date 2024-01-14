@@ -18,7 +18,6 @@ export function createOtherObjects1(scene) {
   otherObjects.create(1050, 460, 'tree1')
   otherObjects.create(1010, 459, 'bush3')
 
-
   otherObjects.create(1455, 260, 'bush2')
   otherObjects.create(1444, 284, 'mushroom2').setScale(0.5) // y - 45
   otherObjects.create(1401, 267, 'bush3')

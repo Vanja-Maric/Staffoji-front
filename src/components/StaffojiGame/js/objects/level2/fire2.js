@@ -3,6 +3,4 @@
  * @param {Phaser.Scene} scene - The Phaser scene.
  * @returns {Phaser.Physics.Arcade.StaticGroup} The group of fire.
  */
-export function createFire2(scene) {
-}
-
+export function createFire2(scene) {}

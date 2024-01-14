@@ -184,13 +184,43 @@ Make sure to tune your instrument A = 442.`,
   }
 
   handleAttributionsButtonClick() {
-    // TODO: Add attributions
+    this.infowindow = this.add.image(540, 335, 'window').setScale(1.1)
+    this.menuButton = this.createButton(540, 460, 'menuButton')
+    this.menuButton.on('pointerdown', () => this.handleReturnToMenuButton())
+    
+    this.attributionsText = this.add
+      .text(
+        278,
+        180,
+        ` 
+        Attributions (You can find the attributions at home page as well):
+        Cello, Bass: "https://www.flaticon.com/free-icons/cello"; 
+        Violin: "https://www.flaticon.com/free-icons/violin";
+        Guitar: "https://www.flaticon.com/free-icons/guitar";
+        Piano, Flute: "https://www.flaticon.com/free-icons/piano";
+        Recorder: "https://www.flaticon.com/free-icons/flute";
+        Menu music: "https://opengameart.org/content/woodland-fantasy";
+        Menu background image: "https://pixabay.com/sv/vectors/bakgrund
+        -m%C3%B6nster-l%C3%B6v-l%C3%B6vverk-gr%C3%B6n-6642882/"
+        Game music: "https://opengameart.org/content/crystal-cave-song18">
+        Coin sound: "https://opengameart.org/content/completion-sound">`,
+        {
+          fontSize: '16px',
+          fill: '#000',
+          fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',
+          resolution: 1.9
+        }
+      )
   }
 
   handleReturnToMenuButton() {
     this.infowindow.destroy()
     this.menuButton.destroy()
-    this.instructionText.destroy()
+    if (this.instructionText) {
+      this.instructionText.destroy()}
+    if (this.attributionsText) {
+    this.attributionsText.destroy()
+    }
   }
 }
 

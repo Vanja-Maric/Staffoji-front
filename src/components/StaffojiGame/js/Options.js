@@ -110,7 +110,6 @@ class Options extends Phaser.Scene {
   }
 
   setClefIfNotVIolinOrViola() {
-    
     if (this.instrument === 'cello' || this.instrument === 'bassInstrument') {
       this.selectedClef = 'bass'
     } else {

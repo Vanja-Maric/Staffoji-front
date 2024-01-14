@@ -21,7 +21,7 @@ export function createCoins1(scene) {
   const coins = scene.physics.add.staticGroup()
 
   // Create coins at specific positions
-  createCoin(coins, 837, 296)// Platform y - 62 ( + 8 / 9 if flying pl)
+  createCoin(coins, 837, 296) // Platform y - 62 ( + 8 / 9 if flying pl)
 
   createCoin(coins, 1814, 160)
   createCoin(coins, 1864, 190)

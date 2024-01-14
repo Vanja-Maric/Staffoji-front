@@ -17,14 +17,18 @@ export function createClefs1(scene, selectedClef) {
     selectedClef
   ).setVisible(false)
   createClef(716, 440, { jumpDirection: 'right' }, selectedClef) // On first platform
-  createClef(1239, 440, { jumpDirection: 'right', noDirection: 'right' }, selectedClef)
+  createClef(
+    1239,
+    440,
+    { jumpDirection: 'right', noDirection: 'right' },
+    selectedClef
+  )
   createClef(
     1698,
     248,
     { jumpDirection: 'right', noDirection: 'left' },
     selectedClef
-  ) 
- 
+  )
 
   const tweenConfig = {
     targets: clefs.getChildren(),

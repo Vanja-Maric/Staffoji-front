@@ -39,6 +39,9 @@ class Play extends Phaser.Scene {
     this.coinSound = this.sound.add('coinSound', { volume: 0.8 })
     // this.deathSound = this.sound.add('deathSound', { volume: 0.1 })
 
+    // logo
+    let logoSerz = this.add.image(1050, 647, 'serzLogo').setDepth(10).setScale(0.4)
+    logoSerz.resolution = 2
     // Backgrund
     this.createBackgroundImages()
 
@@ -507,10 +510,10 @@ class Play extends Phaser.Scene {
       case 'flute':
         numberOfNoteImages = 16
         break
-      case 'blockFl': 
+      case 'blockFl':
         numberOfNoteImages = 16
         break
-        default:
+      default:
         numberOfNoteImages = 12
     }
     return numberOfNoteImages
@@ -809,9 +812,15 @@ class Play extends Phaser.Scene {
       .setScrollFactor(0)
       .setDepth(102)
 
-      this.restartButton.on('pointerover', () => (this.game.canvas.style.cursor = 'pointer'))
+    this.restartButton.on(
+      'pointerover',
+      () => (this.game.canvas.style.cursor = 'pointer')
+    )
 
-      this.restartButton.on('pointerout', () => (this.game.canvas.style.cursor = 'default'))
+    this.restartButton.on(
+      'pointerout',
+      () => (this.game.canvas.style.cursor = 'default')
+    )
     this.restartButton.on('pointerdown', () => {
       this.restartGame()
     })
@@ -829,8 +838,14 @@ class Play extends Phaser.Scene {
       .setScrollFactor(0)
       .setDepth(102)
 
-      this.menuButton.on('pointerover', () => (this.game.canvas.style.cursor = 'pointer'))
-      this.menuButton.on('pointerout', () => (this.game.canvas.style.cursor = 'default'))
+    this.menuButton.on(
+      'pointerover',
+      () => (this.game.canvas.style.cursor = 'pointer')
+    )
+    this.menuButton.on(
+      'pointerout',
+      () => (this.game.canvas.style.cursor = 'default')
+    )
     this.menuButton.on('pointerdown', () => {
       this.handleMenuButton()
     })
@@ -863,7 +878,6 @@ class Play extends Phaser.Scene {
       )
       this.winText.setScrollFactor(0)
     }, 1000)
-
   }
 
   /**
@@ -871,7 +885,7 @@ class Play extends Phaser.Scene {
    */
   restartGame() {
     // Do not reload because of side effect eith stone dropping multiple times.
-  
+
     this.destroy()
     this.scene.start('Play')
   }
