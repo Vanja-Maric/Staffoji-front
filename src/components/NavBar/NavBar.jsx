@@ -38,7 +38,7 @@ export function NavBar() {
     getLocalStream() // Call async function
   }, [])
 
-  console.log('rendering')
+  // console.log('rendering')
 
   /**
    * State that tracks whether the checkbox is checked or not. Used to toggle the menu in mobile view.

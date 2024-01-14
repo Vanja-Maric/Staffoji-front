@@ -73,14 +73,14 @@ class Play extends Phaser.Scene {
     // Notes
     this.noteImages = createNoteImages(this.instrument)
 
-    console.log('note images', this.noteImages)
+    // console.log('note images', this.noteImages)
 
     // Coins
     this.coins = this.levelConfig.createCoins(this)
 
     // Clefs
     this.clefs = this.levelConfig.createClefs(this, this.selectedClef)
-    console.log('selected clef', this.selectedClef)
+    // console.log('selected clef', this.selectedClef)
     this.clefs.getChildren().forEach(function (clef) {
       // Shining
       this.createEmitterForClef(clef)
@@ -280,13 +280,13 @@ class Play extends Phaser.Scene {
     if (this.lastVisitedClef === clef) {
       // // Do this so the character do not activate clef that it just left walking towards left
       if (!this.returningToSameClefCharacterDied) {
-        console.log('NEEEEEEEEEEEEEEEE')
+        // console.log('NEEEEEEEEEEEEEEEE')
         return
       }
     }
     if (!this.character.isDead) {
       this.stopMusicAndHideClef(clef)
-      console.log('hiding the clef')
+      // console.log('hiding the clef')
 
       // Show the note directions, note images, and play the music again after 1.5 seconds
       this.showDirections(
@@ -389,10 +389,10 @@ class Play extends Phaser.Scene {
       }
       this.removeDirections()
       clef.enableBody(true, clef.x, clef.y, true, true)
-      console.log('showing the clef')
+      // console.log('showing the clef')
       this.returnAssociatedEmitter(associatedEmitter)
     } else {
-      console.log('still overlapping. cannot show the clef')
+      // console.log('still overlapping. cannot show the clef')
       this.time.delayedCall(
         300,
         () => this.showClefAgain(character, clef),
@@ -522,7 +522,7 @@ class Play extends Phaser.Scene {
    * @returns {integer[]} The random numbers.
    */
   generateRandomNumbersForNoteImages(numberOfNoteImages) {
-    console.log('number of note images', numberOfNoteImages)
+    // console.log('number of note images', numberOfNoteImages)
     const randomNumber1 = Math.floor(Math.random() * numberOfNoteImages)
     let randomNumber2 = Math.floor(Math.random() * numberOfNoteImages)
     let randomNumber3 = Math.floor(Math.random() * numberOfNoteImages)
@@ -914,7 +914,7 @@ class Play extends Phaser.Scene {
   destroy() {
     this.shutDownListener()
     this.music.stop()
-    console.log('destroying')
+    // console.log('destroying')
   }
 }
 

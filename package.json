@@ -2,6 +2,7 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dolphin-app-5nx5l.ondigitalocean.app/",
   "dependencies": {
     "@babel/preset-react": "^7.23.3",
     "@emotion/react": "^11.10.6",

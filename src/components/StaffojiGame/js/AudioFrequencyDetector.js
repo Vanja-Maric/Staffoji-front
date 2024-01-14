@@ -214,7 +214,7 @@ class AudioFrequencyDetector {
         const note = this.noteFromPitch(ac)
         const sym = this.noteStrings[note % 12]
         const scl = Math.floor(note / 12) - 1
-        console.log(note, sym, scl, ac)
+        // console.log(note, sym, scl, ac)
 
         // Check if the frequency has been higher than -1 for cirka 1000 milliseconds and if the tone is the same
         if (
@@ -239,7 +239,7 @@ class AudioFrequencyDetector {
             // Delete all the items in the array if the tone is different
             this.frequencyes = []
           }
-          console.log(this.frequencyes)
+          // console.log(this.frequencyes)
           this.toneDetectedTimeout = setTimeout(() => {
             this.updatePitch()
           }, 30) // Call updatePitch again after 1 millisecond or 20????
@@ -291,7 +291,7 @@ class AudioFrequencyDetector {
         this.source.disconnect()
       }
     }
-    console.log('Audio frequency detector stopped')
+    // console.log('Audio frequency detector stopped')
 
     clearTimeout(this.toneDetectedTimeout)
     clearTimeout(this.waitingToneTimeout)

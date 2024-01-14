@@ -80,7 +80,7 @@ class Character extends Phaser.GameObjects.Sprite {
 
     document.addEventListener('toneDetected', (event) => {
       this.detectedTone = event.detail.tone
-      // console.log('Tone detected: ', this.detectedTone)
+      // // console.log('Tone detected: ', this.detectedTone)
     })
   }
 
@@ -226,7 +226,7 @@ class Character extends Phaser.GameObjects.Sprite {
     this.rightDirection = right
     this.upDirection = up
     this.jumpDirection = dir
-    /* console.log(
+    /* // console.log(
       'Tones to detected: ',
       this.leftDirection,
       this.rightDirection,

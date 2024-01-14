@@ -22,7 +22,7 @@ class Options extends Phaser.Scene {
   }
 
   update() {
-    console.log(this.instrument)
+    // console.log(this.instrument)
     this.setLevel()
     this.updateLevelButtonImages()
     if (this.instrument === 'violin' || this.instrument === 'viola') {
@@ -35,7 +35,7 @@ class Options extends Phaser.Scene {
     this.instrument = this.registry.get('instrument')
     this.level = 1
     this.audio = new AudioFrequencyDetector(this.getToneVolumenLowerBorder())
-    console.log(this.audio)
+    // console.log(this.audio)
     this.musicMenu = this.registry.get('musicMenu')
     this.selectedClef = 'treble'
   }

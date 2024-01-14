@@ -6,7 +6,7 @@
 
 export function createNoteImages(selectedInstrument) {
   let noteImages = []
-  console.log('selectedInstrument', selectedInstrument)
+  // console.log('selectedInstrument', selectedInstrument)
   if (
     selectedInstrument === 'violin'
   ) {
