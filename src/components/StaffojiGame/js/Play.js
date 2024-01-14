@@ -788,11 +788,14 @@ class Play extends Phaser.Scene {
     this.restartButton = this.addButton(
       this.gameOverWindow.x - 80,
       this.gameOverWindow.y + 120,
-      'restartButton',
-      0.5
+      'restartButton'
     )
       .setScrollFactor(0)
       .setDepth(102)
+
+      this.restartButton.on('pointerover', () => (this.game.canvas.style.cursor = 'pointer'))
+
+      this.restartButton.on('pointerout', () => (this.game.canvas.style.cursor = 'default'))
     this.restartButton.on('pointerdown', () => {
       this.restartGame()
     })
@@ -809,6 +812,9 @@ class Play extends Phaser.Scene {
     )
       .setScrollFactor(0)
       .setDepth(102)
+
+      this.menuButton.on('pointerover', () => (this.game.canvas.style.cursor = 'pointer'))
+      this.menuButton.on('pointerout', () => (this.game.canvas.style.cursor = 'default'))
     this.menuButton.on('pointerdown', () => {
       this.handleMenuButton()
     })
