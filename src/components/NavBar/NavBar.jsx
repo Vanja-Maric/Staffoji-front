@@ -67,12 +67,12 @@ export function NavBar() {
           </label>
           <ul className="menu">
             <li>
-              <NavLink to="/" onClick={handelChecked}>
+              <NavLink to="/home" onClick={handelChecked}>
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/game" onClick={handelChecked}>
+              <NavLink to="/" onClick={handelChecked}>
                 Game
               </NavLink>
             </li>
@@ -81,8 +81,8 @@ export function NavBar() {
 
         <div className="page-content">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/game" element={mic ? <Game /> : <TurnOnYourMic />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={mic ? <Game /> : <TurnOnYourMic />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
