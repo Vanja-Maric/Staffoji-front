@@ -33,7 +33,7 @@ class Options extends Phaser.Scene {
 
   initializeScene() {
     this.instrument = this.registry.get('instrument')
-    this.level = 1
+    this.level = 3
     this.audio = new AudioFrequencyDetector(this.getToneVolumenLowerBorder())
     // console.log(this.audio)
     this.musicMenu = this.registry.get('musicMenu')
@@ -202,7 +202,7 @@ class Options extends Phaser.Scene {
       button.resolution = 2
     })
 
-    this.levelRadioButtons[0].selected = true // Set initial selection to level 1
+    this.levelRadioButtons[2].selected = true // Set initial selection to level 1
 
     this.levelRadioButtons.forEach((button, index) => {
       button.on('pointerdown', () => this.handleLevelButtons(index))
