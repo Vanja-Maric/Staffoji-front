@@ -4,6 +4,12 @@ Welcome to the Staffoji Web Application! The purpose of the "Staffoji" game is t
 Author: Vanja Maric 
 Version: 1.0.0
 
+## Play game
+ [Click here to play the game](https://www.staffojigame.se/)
+
+## Demo 
+ [Click here to see the demo video](https://www.youtube.com/watch?v=o_Zfmc6h9Qw&ab_channel=VanjaMaric)
+
 ## Installation
 To install and run the application on your local machine, follow these steps:
 
@@ -15,7 +21,7 @@ To install and run the application on your local machine, follow these steps:
 
 ## Usage
 The home page contains a brief description of the Staffoji game, along with basic gameplay instructions.
-By clicking on the "Game" navigation link or , you will be taken to the game page.
+By clicking on the "Game" navigation link or, you will be taken to the game page.
 On the game page, you can start playing the game and enjoy the engaging Staffoji experience.
 Follow the on-screen instructions to play and achieve the highest score.
 
@@ -29,5 +35,5 @@ In the upcoming Version 2 of the application, I am excited to introduce the foll
 ## License
 This application is available under the MIT license. For more information, refer to the LICENSE file.
 
-Contact
-If you have any questions, suggestions, or feedback, feel free to contact me via email: vm222hx@student.lnu.se
+## Contact
+If you have any questions, suggestions, or feedback, feel free to contact me via email: maricvanj@gmail.com
