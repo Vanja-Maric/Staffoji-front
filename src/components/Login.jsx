@@ -31,7 +31,8 @@ const Login = () => {
     if (response.ok) {
       console.log('Login successful');
     } else {
-      console.error('Login failed');
+      const errorData = await response.json();
+      console.error('Notification failed:', errorData.message);
     }
   };
 
