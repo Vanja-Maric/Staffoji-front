@@ -10,8 +10,8 @@ import {
 } from 'react-router-dom'
 import { Home } from '../Home/Home'
 import { Game } from '../StaffojiGame/Game.jsx'
-import  Login from '../Login.jsx';
-import  Notification  from '../Notification.jsx';
+import  Login from '../Login/Login.jsx';
+import  Notification  from '../Notification/Notification.jsx'
 
 // import { HighScores } from '../HighScores'
 // import { SingUp } from '../SingUp'
