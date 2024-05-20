@@ -13,6 +13,7 @@ class Menu extends Phaser.Scene {
     this.createPlayButton()
     this.createInfoButton()
     this.createAttributionsButton()
+    this.createLeaderbordButton()
   }
 
   update() {
@@ -187,12 +188,11 @@ Make sure to tune your instrument A = 442.`,
     this.infowindow = this.add.image(540, 335, 'window').setScale(1.1)
     this.menuButton = this.createButton(540, 460, 'menuButton')
     this.menuButton.on('pointerdown', () => this.handleReturnToMenuButton())
-    
-    this.attributionsText = this.add
-      .text(
-        278,
-        180,
-        ` 
+
+    this.attributionsText = this.add.text(
+      278,
+      180,
+      ` 
         Attributions (You can find the attributions at home page as well):
         Cello, Bass: "https://www.flaticon.com/free-icons/cello"; 
         Violin: "https://www.flaticon.com/free-icons/violin";
@@ -204,22 +204,99 @@ Make sure to tune your instrument A = 442.`,
         -m%C3%B6nster-l%C3%B6v-l%C3%B6vverk-gr%C3%B6n-6642882/"
         Game music: "https://opengameart.org/content/crystal-cave-song18">
         Coin sound: "https://opengameart.org/content/completion-sound">`,
-        {
-          fontSize: '16px',
-          fill: '#000',
-          fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',
-          resolution: 1.9
-        }
+      {
+        fontSize: '16px',
+        fill: '#000',
+        fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',
+        resolution: 1.9,
+      }
+    )
+  }
+
+  createLeaderbordButton() {
+    this.attributionsButton = this.createButton(75, 200, 'attributionsButton')
+    // Change cursor on hover with light shade
+    this.attributionsButton.on('pointerover', () =>
+      this.attributionsButton.setTint(0xcccccc)
+    )
+    this.attributionsButton.on('pointerout', () =>
+      this.attributionsButton.setTint(0xffffff)
+    )
+    this.attributionsButton.on('pointerdown', () => this.handleLeaderbord())
+  }
+
+  async handleLeaderbord() {
+    
+    this.infowindow = this.add.image(540, 335, 'window').setScale(1.1)
+    this.menuButton = this.createButton(540, 460, 'menuButton')
+    this.menuButton.on('pointerdown', () => this.handleReturnToMenuButton())
+    this.menuButton.setVisible(false)
+
+    // Fetch leaderboard data from the server
+    const response = await fetch('http://localhost:8083/leaderboard/')
+    if (!response.ok) {
+      console.error('Failed to fetch leaderboard data:', response.statusText)
+      return
+    }
+
+    const leaderboardData = await response.json()
+
+    // Limit the number of entries to 10
+    const limitedLeaderboardData = leaderboardData.slice(0, 9)
+
+    // Format leaderboard data as a string
+    const leaderboardText = limitedLeaderboardData
+      .map(
+        (entry, index) =>
+          `${index + 1}. ${entry.userName.padEnd(22, '.')} ${entry.totalScore}`
       )
+      .join('\n')
+
+    this.attributionsText = this.add.text(278, 200, leaderboardText, {
+      fontSize: '30px',
+      fill: '#ff6347', // Red color
+      fontStyle: 'bold italic',
+      fontFamily: 'Courier, monospace', // Use a monospaced font
+      stroke: '#000000', // Black stroke
+      strokeThickness: 2,
+      shadow: {
+        offsetX: 2,
+        offsetY: 2,
+        color: '#000000',
+        blur: 2,
+        stroke: true,
+        fill: true,
+      },
+      resolution: 1.9,
+    })
+    // Add input listener to the entire game scene
+    this.input.on('pointerdown', (pointer) => {
+      // Check if clicked position is outside the leaderboard window
+      if (
+        !Phaser.Geom.Rectangle.Contains(
+          this.infowindow.getBounds(),
+          pointer.x,
+          pointer.y
+        )
+      ) {
+        // Close the leaderboard window
+        this.infowindow.destroy()
+        this.menuButton.destroy()
+        this.attributionsText.destroy()
+        // Remove this input listener
+        this.input.off('pointerdown')
+      }
+    })
   }
 
   handleReturnToMenuButton() {
     this.infowindow.destroy()
     this.menuButton.destroy()
     if (this.instructionText) {
-      this.instructionText.destroy()}
+      this.instructionText.destroy()
+    }
     if (this.attributionsText) {
-    this.attributionsText.destroy()
+      this.attributionsText.destroy()
     }
   }
 }
