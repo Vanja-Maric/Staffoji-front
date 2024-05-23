@@ -14,7 +14,9 @@ const Login = () => {
   const handleSignIn = async (event) => {
     event.preventDefault();
 
-    const response = await fetch('http://localhost:8083/user/', {
+     const response = await fetch('https://staffoji-game-6d75a67b1765.onrender.com/user/', {
+    //TODO: change to the following line when deploying 
+    // //  const response = await fetch('http://localhost:8083/user/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -37,7 +39,8 @@ const Login = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
 
-    const response = await fetch('http://localhost:8083/user/login', {
+     const response = await fetch('https://staffoji-game-6d75a67b1765.onrender.com/user/login', {
+    //  const response = await fetch('http://localhost:8083/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
