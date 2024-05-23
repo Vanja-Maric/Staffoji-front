@@ -10,7 +10,8 @@ import {
 } from 'react-router-dom'
 import { Home } from '../Home/Home'
 import { Game } from '../StaffojiGame/Game.jsx'
-import  Login from '../Login/Login.jsx';
+import  LogIn from '../LogIn/LogIn.jsx'
+import SignUp from '../SignUp/SignUp.jsx'
 import  Notification  from '../Notification/Notification.jsx'
 
 // import { HighScores } from '../HighScores'
@@ -81,7 +82,12 @@ export function NavBar() {
             </li>
             <li>
               <NavLink to="/login" onClick={handelChecked}>
-                Login
+                Log In
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/signup" onClick={handelChecked}>
+                Sign Up
               </NavLink>
             </li>
             <li>
@@ -95,7 +101,8 @@ export function NavBar() {
         <div className="page-content">
           <Routes>
             <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<LogIn />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={mic ? <Game /> : <TurnOnYourMic />} />
             <Route path="*" element={<PageNotFound />} />
             <Route path="/Notification" element={<Notification />} />

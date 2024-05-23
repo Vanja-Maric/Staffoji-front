@@ -1,9 +1,13 @@
 import { css } from '@emotion/react'
 import 'bootstrap/dist/css/bootstrap.css'
 
-export const LogInCss = css`
+export const SignUpCss = css`
 .container {
   max-width: 600px;
+}
+
+h2 {
+  margin-top: 50px;
 }
 
 .form-check-label {
