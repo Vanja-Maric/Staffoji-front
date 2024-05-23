@@ -59,13 +59,9 @@ const Notification = () => {
               <option value="notPremium">Non-Premium</option>
             </select>
           </div>
-
-          <div className="mb-3">
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" checked={sendNow} onChange={e => setSendNow(e.target.checked)} />
-              <label className="form-check-label">Send Immediately</label>
-            </div>
-          </div>
+            <button type="button" className="btn btn2" onClick={() => setSendNow(!sendNow)}>
+        {sendNow ? 'Cancel Immediate Send' : 'Send Immediately'}
+        </button>
 
           {!sendNow && (
             <div className="mb-3">

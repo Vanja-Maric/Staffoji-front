@@ -10,9 +10,9 @@ import {
 } from 'react-router-dom'
 import { Home } from '../Home/Home'
 import { Game } from '../StaffojiGame/Game.jsx'
-import  LogIn from '../LogIn/LogIn.jsx'
+import LogIn from '../LogIn/LogIn.jsx'
 import SignUp from '../SignUp/SignUp.jsx'
-import  Notification  from '../Notification/Notification.jsx'
+import Notification from '../Notification/Notification.jsx'
 
 // import { HighScores } from '../HighScores'
 // import { SingUp } from '../SingUp'
@@ -27,6 +27,7 @@ import { NavBarCss } from './NavBar.css.jsx'
  */
 export function NavBar() {
   const [mic, setMic] = useState(false)
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
 
   // Get michrophon acess - If it is not turned on, do not open game page
   async function getLocalStream() {
@@ -40,6 +41,10 @@ export function NavBar() {
   }
   useEffect(() => {
     getLocalStream() // Call async function
+    const username = sessionStorage.getItem('username');
+    if (username) {
+      setIsUserLoggedIn(true);
+    }
   }, [])
 
   // console.log('rendering')
@@ -48,6 +53,7 @@ export function NavBar() {
    * State that tracks whether the checkbox is checked or not. Used to toggle the menu in mobile view.
    */
   const [checkChecked, setChecked] = useState(false)
+
 
   /**
    * Handles the change event of the checkbox.
@@ -80,12 +86,15 @@ export function NavBar() {
                 Game
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/login" onClick={handelChecked}>
-                Log In
-              </NavLink>
-            </li>
-            <li>
+            {/* Conditionally render the Log In link */}
+            {!isUserLoggedIn && (
+              <>
+              <li>
+                <NavLink to="/login" onClick={handelChecked}>
+                  Log In
+                </NavLink>
+              </li>
+              <li>
               <NavLink to="/signup" onClick={handelChecked}>
                 Sign Up
               </NavLink>
@@ -95,6 +104,8 @@ export function NavBar() {
                 Notification
               </NavLink>
             </li>
+            </>
+            )}
           </ul>
         </div>
 
