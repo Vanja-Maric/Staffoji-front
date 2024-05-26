@@ -12,7 +12,7 @@ const Notification = () => {
   async function sendNotification(e) {
     e.preventDefault()
 
-      const response = await fetch('https://staffoji-game-6d75a67b1765.onrender.com/notification/', {
+      const response = await fetch('https://staffoji-game-last.onrender.com/notification/', {
       //TODO: change to the following line when deploying
       // const response = await fetch('http://localhost:8083/notification/', {
       method: 'POST',

@@ -11,6 +11,7 @@ import {
 import { Home } from '../Home/Home'
 import { Game } from '../StaffojiGame/Game.jsx'
 import LogIn from '../LogIn/LogIn.jsx'
+import LogOut from '../LogOut/LogOut.jsx'
 import SignUp from '../SignUp/SignUp.jsx'
 import Notification from '../Notification/Notification.jsx'
 
@@ -28,6 +29,9 @@ import { NavBarCss } from './NavBar.css.jsx'
 export function NavBar() {
   const [mic, setMic] = useState(false)
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+  const [isUserAdmin, setIsUserAdmin] = useState(false)
+  const [checkChecked, setChecked] = useState(false)
+
 
   // Get michrophon acess - If it is not turned on, do not open game page
   async function getLocalStream() {
@@ -39,27 +43,29 @@ export function NavBar() {
       setMic(false)
     }
   }
+
   useEffect(() => {
+    console.log('checking id the user is logged')
     getLocalStream() // Call async function
-    const username = sessionStorage.getItem('username');
-    if (username) {
+    const email = sessionStorage.getItem('email');
+
+    if (email) {
       setIsUserLoggedIn(true);
+      if (email) {
+        console.log("Setting admin true")
+        setIsUserAdmin(true)
+      }
+    } else {
+      setIsUserLoggedIn(false)
     }
-  }, [])
-
-  // console.log('rendering')
-
-  /**
-   * State that tracks whether the checkbox is checked or not. Used to toggle the menu in mobile view.
-   */
-  const [checkChecked, setChecked] = useState(false)
-
+  }, [checkChecked, isUserLoggedIn])
 
   /**
    * Handles the change event of the checkbox.
    */
-  function handelChecked() {
+  function handleChecked() {
     setChecked(!checkChecked)
+    console.log('handling checkChecked')
   }
 
   return (
@@ -77,34 +83,51 @@ export function NavBar() {
           </label>
           <ul className="menu">
             <li>
-              <NavLink to="/home" onClick={handelChecked}>
+              <NavLink to="/home" onClick={handleChecked}>
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/" onClick={handelChecked}>
+              <NavLink to="/" onClick={handleChecked}>
                 Game
               </NavLink>
             </li>
-            {/* Conditionally render the Log In link */}
-            {!isUserLoggedIn && (
+            {/* Conditionally render the links */}
+            {!isUserLoggedIn ? (
               <>
-              <li>
-                <NavLink to="/login" onClick={handelChecked}>
-                  Log In
-                </NavLink>
-              </li>
-              <li>
-              <NavLink to="/signup" onClick={handelChecked}>
-                Sign Up
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/Notification" onClick={handelChecked}>
-                Notification
-              </NavLink>
-            </li>
-            </>
+                <li>
+                  <NavLink to="/login" onClick={handleChecked}>
+                    Log In
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/signup" onClick={handleChecked}>
+                    Sign Up
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                {/* Add links or components to render when the user is logged in */}
+                <li>
+                  <NavLink to="/profile" onClick={handleChecked}>
+                    Profile
+                  </NavLink>
+                </li>
+                {/* Render Notification link only if user is admin */}
+                {isUserAdmin && (
+                  <li>
+                    <NavLink to="/notification" onClick={handleChecked}>
+                      Notification
+                    </NavLink>
+                  </li>
+                )}
+                <li>
+                  <NavLink to="/logout" onClick={handleChecked}>
+                    Log Out
+                  </NavLink>
+                </li>
+              </>
             )}
           </ul>
         </div>
@@ -113,6 +136,7 @@ export function NavBar() {
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<LogIn />} />
+            <Route path="/logout" element={<LogOut />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={mic ? <Game /> : <TurnOnYourMic />} />
             <Route path="*" element={<PageNotFound />} />
@@ -123,17 +147,3 @@ export function NavBar() {
     </div>
   )
 }
-
-/* <li>
-    <NavLink to="/high-scores" onClick={handelChecked}>
-      High Scores
-    </NavLink>
-  </li>
-  <li id="atRightSide">
-    <NavLink to="/sign-up" onClick={handelChecked}>
-      Create account
-    </NavLink>
-  </li> /*
-
-  /* <Route path="/high-scores" element={<HighScores />} />
-     <Route path="/sign-up" element={<SingUp />} /> */

@@ -20,7 +20,7 @@ const SignUp = () => {
   const handleSignUp = async (event) => {
     event.preventDefault()
     console.log('signing up')
-    const response = await fetch('https://staffoji-game-6d75a67b1765.onrender.com/user/', {
+    const response = await fetch('https://staffoji-game-last.onrender.com/user/', {
       //TODO: change to the following line when deploying 
       // //  const response = await fetch('http://localhost:8083/user/', {
       method: 'POST',
