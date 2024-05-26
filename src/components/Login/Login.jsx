@@ -45,12 +45,14 @@ const LogIn = () => {
       console.log('Login successful')
       const resp = await response.json()
       const user = {
+        username: resp.username,
         email: resp.email,
         admin: resp.admin
       }
+      console.log(user)
       console.log(resp.admin)
 
-      sessionStorage.setItem('email', user) // Store whole user and change session name from email to user
+      sessionStorage.setItem('email', JSON.stringify(user)) // Store whole user and change session name from email to user
       // TODO: BEFORE PRODUCTION SAVE SESSIONS TO REDIS SO THAT IT IS SAfER
       console.log(sessionStorage.getItem(user))
       console.log(user)

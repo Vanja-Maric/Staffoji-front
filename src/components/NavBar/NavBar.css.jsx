@@ -21,7 +21,7 @@ export const NavBarCss = css`
   }
 
   p {
-    margin: 30px;
+    margin: 18px;
   }
 
   .menu {
@@ -51,6 +51,19 @@ export const NavBarCss = css`
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
     font-family: 'Times New Roman', Times, serif;
   }
+
+  
+  .user-info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+    font-family: 'Times New Roman', Times, serif;
+  }  
+
 
   .menu #atRightSide {
     float: right;

@@ -13,7 +13,8 @@ class Menu extends Phaser.Scene {
     this.createPlayButton()
     this.createInfoButton()
     this.createAttributionsButton()
-    this.createLeaderbordButton()
+    this.createHighScoresButton()
+    this.createMusicOnButton()
   }
 
   update() {
@@ -212,17 +213,22 @@ Make sure to tune your instrument A = 442.`,
       }
     )
   }
+  
+  createMusicOnButton() { // TODO: ADD FUNCTIONALITI HERE
+    this.musicOnButton = this.createButton(1005, 200, 'musicOnButton')
+  }
 
-  createLeaderbordButton() {
-    this.attributionsButton = this.createButton(75, 200, 'attributionsButton')
+
+  createHighScoresButton() {
+    this.highScoresButton = this.createButton(75, 200, 'highScoresButton')
     // Change cursor on hover with light shade
-    this.attributionsButton.on('pointerover', () =>
-      this.attributionsButton.setTint(0xcccccc)
+    this.highScoresButton.on('pointerover', () =>
+      this.highScoresButton.setTint(0xcccccc)
     )
-    this.attributionsButton.on('pointerout', () =>
-      this.attributionsButton.setTint(0xffffff)
+    this.highScoresButton.on('pointerout', () =>
+      this.highScoresButton.setTint(0xffffff)
     )
-    this.attributionsButton.on('pointerdown', () => this.handleLeaderbord())
+    this.highScoresButton.on('pointerdown', () => this.handleLeaderbord())
   }
 
   async handleLeaderbord() {
@@ -241,20 +247,20 @@ Make sure to tune your instrument A = 442.`,
       return
     }
 
-    const leaderboardData = await response.json()
+    const highScoresData = await response.json()
 
     // Limit the number of entries to 10
-    const limitedLeaderboardData = leaderboardData.slice(0, 9)
+    const limitedHighScoresData = highScoresData.slice(0, 9)
 
     // Format leaderboard data as a string
-    const leaderboardText = limitedLeaderboardData
+    const highScoresText = limitedHighScoresData
       .map(
         (entry, index) =>
           `${index + 1}. ${entry.userName.padEnd(22, '.')} ${entry.totalScore}`
       )
       .join('\n')
 
-    this.attributionsText = this.add.text(278, 200, leaderboardText, {
+    this.highScoresText = this.add.text(278, 200, highScoresText, {
       fontSize: '30px',
       fill: '#ff6347', // Red color
       fontStyle: 'bold italic',
@@ -283,8 +289,7 @@ Make sure to tune your instrument A = 442.`,
       ) {
         // Close the leaderboard window
         this.infowindow.destroy()
-        this.menuButton.destroy()
-        this.attributionsText.destroy()
+        this.highScoresText.destroy()
         // Remove this input listener
         this.input.off('pointerdown')
       }
@@ -299,6 +304,9 @@ Make sure to tune your instrument A = 442.`,
     }
     if (this.attributionsText) {
       this.attributionsText.destroy()
+    }
+    if (this.highScoresText) {
+      this.highScoresText.destroy()
     }
   }
 }

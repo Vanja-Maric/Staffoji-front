@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-
 import React from 'react'
 import { useState, useEffect } from 'react'
 import {
@@ -50,7 +49,7 @@ export function NavBar() {
     const email = sessionStorage.getItem('email');
 
     if (email) {
-      setIsUserLoggedIn(true);
+      setIsUserLoggedIn(true)
       if (email) {
         console.log("Setting admin true")
         setIsUserAdmin(true)
@@ -127,6 +126,9 @@ export function NavBar() {
                     Log Out
                   </NavLink>
                 </li>
+                <div className="user-info">
+                  <p>Hello {JSON.parse(sessionStorage.getItem('email')).username}!</p>
+                </div>
               </>
             )}
           </ul>

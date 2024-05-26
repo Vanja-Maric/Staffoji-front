@@ -17,6 +17,8 @@ import restartButton from '../images/menuButtons/restartButton.png'
 import menuButton from '../images/menuButtons/homeButton.png'
 import infoButton from '../images/menuButtons/infoButton.png'
 import attributionsButton from '../images/menuButtons/attributionsButton.png'
+import highScoresButton from '../images/menuButtons/highScoreButton.png'
+import musicOnButton from '../images/menuButtons/musicOnButton.png'
 import smallDisabledButton from '../images/menuButtons/smallDisabledButton.png'
 import windowPapper from '../images/menuButtons/window.png'
 import levelNumber1 from '../images/menuButtons/levelNumber1.png'
@@ -217,6 +219,8 @@ class Preloader extends Phaser.Scene {
     this.load.image('playButton', playButton)
     this.load.image('infoButton', infoButton)
     this.load.image('attributionsButton', attributionsButton)
+    this.load.image('highScoresButton', highScoresButton)
+    this.load.image('musicOnButton', musicOnButton)
     this.load.image('restartButton', restartButton)
     this.load.image('menuButton', menuButton)
     this.load.image('smallDisabledButton', smallDisabledButton)
