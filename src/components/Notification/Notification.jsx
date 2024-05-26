@@ -8,6 +8,7 @@ const Notification = () => {
   const [sendNow, setSendNow] = useState(false)
   const [date, setDate] = useState('')
   const [notificationTarget, setNotificationTarget] = useState('all')
+  const [sendNotificationMessage, setSendNotificationMessage] = useState('')
 
   async function sendNotification(e) {
     e.preventDefault()
@@ -29,10 +30,10 @@ const Notification = () => {
     })
     console.log({ title, message, notificationTarget, date, sendNow })
     if (response.ok) {
-      console.log('Notification sent')
+      setSendNotificationMessage('Notification sent')
     } else {
       const errorData = await response.json()
-      console.error('Notification failed:', errorData.message)
+      setSendNotificationMessage('Failed to send notification.', errorData.message)
     }
   }
 
@@ -73,6 +74,9 @@ const Notification = () => {
           <div className="mb-3">
             <button type="submit" className="btn btn-primary">Send</button>
           </div>
+          {sendNotificationMessage !== '' && (
+                <div className="text-danger text-center">{sendNotificationMessage}</div>
+              )}
         </form>
       </div>
     </div>
