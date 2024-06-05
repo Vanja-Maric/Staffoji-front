@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { LogOutCss } from './LogOut.css.jsx'
 import { useNavigate } from 'react-router-dom'
+import { useLogin } from '../Contexts/LoginContext'
 
 const LogIn = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const { isLoggedIn, setIsLoggedIn } = useLogin()
   const navigate = useNavigate()
   const handleLogout = () => {
     sessionStorage.removeItem('email')
@@ -14,17 +15,15 @@ const LogIn = () => {
 
   useEffect(() => {
     console.log('checking id the user is logged')
-   
-    const email = sessionStorage.getItem('email');
+
+    const email = sessionStorage.getItem('email')
     console.log(email)
     if (email) {
-      setIsLoggedIn(true);
-    } else 
-    {
+      setIsLoggedIn(true)
+    } else {
       setIsLoggedIn(false)
     }
-  }, [])
-
+  }, [setIsLoggedIn])
 
   const handleGoToHomePage = () => {
     console.log('handle go to home page')
@@ -36,14 +35,16 @@ const LogIn = () => {
       {!isLoggedIn ? (
         <>
           <h2 className="text-center mb-4">Go back to Home page</h2>
-          <div className='text-center'>
-          <button onClick={handleGoToHomePage}>Home</button>
+          <div className="text-center">
+            <button onClick={handleGoToHomePage}>Home</button>
           </div>
         </>
       ) : (
         <>
-          <h2 className="text-center mb-4">Are you sure that you want to Log Out?</h2>
-          <div className='text-center'>
+          <h2 className="text-center mb-4">
+            Are you sure that you want to Log Out?
+          </h2>
+          <div className="text-center">
             <button onClick={handleLogout}>Log Out</button>
           </div>
         </>

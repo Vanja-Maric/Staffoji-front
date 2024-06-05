@@ -213,11 +213,11 @@ Make sure to tune your instrument A = 442.`,
       }
     )
   }
-  
-  createMusicOnButton() { // TODO: ADD FUNCTIONALITI HERE
+
+  createMusicOnButton() {
+    // TODO: ADD FUNCTIONALITI HERE
     this.musicOnButton = this.createButton(1005, 200, 'musicOnButton')
   }
-
 
   createHighScoresButton() {
     this.highScoresButton = this.createButton(75, 200, 'highScoresButton')
@@ -232,7 +232,6 @@ Make sure to tune your instrument A = 442.`,
   }
 
   async handleLeaderbord() {
-    
     this.infowindow = this.add.image(540, 335, 'window').setScale(1.1)
     this.menuButton = this.createButton(540, 460, 'menuButton')
     this.menuButton.on('pointerdown', () => this.handleReturnToMenuButton())
@@ -241,7 +240,9 @@ Make sure to tune your instrument A = 442.`,
     // Fetch leaderboard data from the server
     // const response = await fetch('http://localhost:8083/leaderboard/')
     //TODO:  change to the following line when deploying
-    const response = await fetch('https://staffoji-game-last.onrender.com/leaderboard/')
+    const response = await fetch(
+      'https://staffoji-game-last.onrender.com/leaderboard/'
+    )
     if (!response.ok) {
       console.error('Failed to fetch leaderboard data:', response.statusText)
       return

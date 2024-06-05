@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom'
 import { Home } from '../Home/Home'
 import { Game } from '../StaffojiGame/Game.jsx'
-import LogIn from '../LogIn/LogIn.jsx'
+import LogIn from '../Login/Login.jsx'
 import LogOut from '../LogOut/LogOut.jsx'
 import SignUp from '../SignUp/SignUp.jsx'
 import Notification from '../Notification/Notification.jsx'
@@ -19,6 +19,7 @@ import Notification from '../Notification/Notification.jsx'
 import { PageNotFound } from '../PageNotFound/PageNotFound'
 import { TurnOnYourMic } from '../TurnOnYourMic/TurnOnYourMic'
 import { NavBarCss } from './NavBar.css.jsx'
+import { useLogin } from '../Contexts/LoginContext'
 
 /**
  * Renders a navigation bar with links to different pages.
@@ -27,10 +28,9 @@ import { NavBarCss } from './NavBar.css.jsx'
  */
 export function NavBar() {
   const [mic, setMic] = useState(false)
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+  const { isLoggedIn, setIsLoggedIn } = useLogin()
   const [isUserAdmin, setIsUserAdmin] = useState(false)
   const [checkChecked, setChecked] = useState(false)
-
 
   // Get michrophon acess - If it is not turned on, do not open game page
   async function getLocalStream() {
@@ -46,18 +46,18 @@ export function NavBar() {
   useEffect(() => {
     console.log('checking id the user is logged')
     getLocalStream() // Call async function
-    const email = sessionStorage.getItem('email');
+    const email = sessionStorage.getItem('email')
 
     if (email) {
-      setIsUserLoggedIn(true)
+      setIsLoggedIn(true)
       if (email) {
-        console.log("Setting admin true")
+        console.log('Setting admin true')
         setIsUserAdmin(true)
       }
     } else {
-      setIsUserLoggedIn(false)
+      setIsLoggedIn(false)
     }
-  }, [checkChecked, isUserLoggedIn])
+  }, [checkChecked, isLoggedIn])
 
   /**
    * Handles the change event of the checkbox.
@@ -92,7 +92,7 @@ export function NavBar() {
               </NavLink>
             </li>
             {/* Conditionally render the links */}
-            {!isUserLoggedIn ? (
+            {!isLoggedIn ? (
               <>
                 <li>
                   <NavLink to="/login" onClick={handleChecked}>
@@ -127,7 +127,10 @@ export function NavBar() {
                   </NavLink>
                 </li>
                 <div className="user-info">
-                  <p>Hello {JSON.parse(sessionStorage.getItem('email')).username}!</p>
+                  <p>
+                    Hello {JSON.parse(sessionStorage.getItem('email')).username}
+                    !
+                  </p>
                 </div>
               </>
             )}

@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react'
-import { LogInCss } from './LogIn.css.jsx'
+import { LogInCss } from './Login.css'
 import { useNavigate } from 'react-router-dom'
+import { useLogin } from '../Contexts/LoginContext'
 
 const LogIn = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const { isLoggedIn, setIsLoggedIn } = useLogin()
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
   const [logInFailedMessage, setLogInFailedMessage] = useState('')
@@ -12,16 +13,15 @@ const LogIn = () => {
 
   useEffect(() => {
     console.log('checking id the user is logged')
-   
-    const email = sessionStorage.getItem('email');
+
+    const email = sessionStorage.getItem('email')
     console.log(email)
     if (email) {
-      setIsLoggedIn(true);
-    } else 
-    {
+      setIsLoggedIn(true)
+    } else {
       setIsLoggedIn(false)
     }
-  }, [])
+  }, [setIsLoggedIn])
 
   const handleGoToHomePage = () => {
     console.log('handle go to home page')
@@ -32,8 +32,8 @@ const LogIn = () => {
     console.log('logging in')
     event.preventDefault()
 
-    const response = await fetch('https://staffoji-game-last.onrender.com/user/login', {
-      //  const response = await fetch('http://localhost:8083/user/login', {
+    // const response = await fetch('https://staffoji-game-last.onrender.com/user/login', {
+    const response = await fetch('http://localhost:8083/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const LogIn = () => {
       const user = {
         username: resp.username,
         email: resp.email,
-        admin: resp.admin
+        admin: resp.admin,
       }
       console.log(user)
       console.log(resp.admin)
@@ -62,7 +62,6 @@ const LogIn = () => {
     }
   }
 
-
   return (
     <div css={LogInCss} className="container">
       <div className="row justify-content-center mt-5">
@@ -73,22 +72,38 @@ const LogIn = () => {
               <form onSubmit={handleLogin}>
                 <div className="mb-3">
                   <label className="form-label">Email:</label>
-                  <input type="text" className="form-control" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={loginEmail}
+                    onChange={(e) => setLoginEmail(e.target.value)}
+                  />
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Password:</label>
-                  <input type="password" className="form-control" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
+                  <input
+                    type="password"
+                    className="form-control"
+                    value={loginPassword}
+                    onChange={(e) => setLoginPassword(e.target.value)}
+                  />
                 </div>
-                <button type="submit" className="btn btn-primary me-2">Login</button>
+                <button type="submit" className="btn btn-primary me-2">
+                  Login
+                </button>
               </form>
               {logInFailedMessage !== '' && (
-                <div className="text-danger text-center">{logInFailedMessage}</div>
+                <div className="text-danger text-center">
+                  {logInFailedMessage}
+                </div>
               )}
             </>
           ) : (
             <>
-              <h2 className="text-center mb-4">You have successfully logged in!</h2>
-              <div className='text-center'>
+              <h2 className="text-center mb-4">
+                You have successfully logged in!
+              </h2>
+              <div className="text-center">
                 <button onClick={handleGoToHomePage}>Home</button>
               </div>
             </>

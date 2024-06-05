@@ -206,7 +206,7 @@ class Character extends Phaser.GameObjects.Sprite {
     }
   }*/
 
- /* goRightWithKeyboard() {
+  /* goRightWithKeyboard() {
     if (this.cursor.right.isDown) {
       this.body.setVelocityX(160)
       this.flipX = false

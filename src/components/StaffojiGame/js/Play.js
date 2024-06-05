@@ -40,7 +40,10 @@ class Play extends Phaser.Scene {
     // this.deathSound = this.sound.add('deathSound', { volume: 0.1 })
 
     // logo
-    let logoSerz = this.add.image(1050, 647, 'serzLogo').setDepth(10).setScale(0.4)
+    let logoSerz = this.add
+      .image(1050, 647, 'serzLogo')
+      .setDepth(10)
+      .setScale(0.4)
     logoSerz.resolution = 2
     // Backgrund
     this.createBackgroundImages()

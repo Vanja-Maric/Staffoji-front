@@ -1,6 +1,6 @@
 import './App.css'
 import { NavBar } from './components/NavBar/NavBar.jsx'
-
+import { LoginProvider } from './components/Contexts/LoginContext'
 
 /**
  * The root component of the application.
@@ -9,13 +9,12 @@ import { NavBar } from './components/NavBar/NavBar.jsx'
  * @returns {JSX.Element} The root component of the application.
  */
 function App() {
-  
   return (
-    <>
+    <LoginProvider>
       <div className="div-container">
         <NavBar />
       </div>
-    </>
+    </LoginProvider>
   )
 }
 

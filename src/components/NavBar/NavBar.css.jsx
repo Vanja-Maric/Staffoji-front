@@ -52,7 +52,6 @@ export const NavBarCss = css`
     font-family: 'Times New Roman', Times, serif;
   }
 
-  
   .user-info {
     position: absolute;
     top: 0;
@@ -62,8 +61,7 @@ export const NavBarCss = css`
     color: #fff;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
     font-family: 'Times New Roman', Times, serif;
-  }  
-
+  }
 
   .menu #atRightSide {
     float: right;
