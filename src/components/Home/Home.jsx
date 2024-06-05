@@ -32,6 +32,18 @@ export function Home() {
           LinkedIn
         </a>
       </p>
+      <p>
+        Robert is an educated system developer with a deep passion for backend
+        development, particularly using the Java programming language. He is
+        responsible for the backend development in our project. You can find
+        Robert on{' '}
+        <a
+          className="alinkedin"
+          href="https://www.linkedin.com/in/robert-milicevic-5a2013149/"
+        >
+          LinkedIn
+        </a>
+      </p>
 
       <p className="buttons">
         <NavLink to="/">
