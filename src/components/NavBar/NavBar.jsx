@@ -29,7 +29,6 @@ import { useLogin } from '../Contexts/LoginContext'
 export function NavBar() {
   const [mic, setMic] = useState(false)
   const { isLoggedIn, setIsLoggedIn } = useLogin()
-  const [isUserAdmin, setIsUserAdmin] = useState(false)
   const [checkChecked, setChecked] = useState(false)
 
   // Get michrophon acess - If it is not turned on, do not open game page
@@ -43,21 +42,10 @@ export function NavBar() {
     }
   }
 
-  useEffect(() => {
-    console.log('checking id the user is logged')
-    getLocalStream() // Call async function
-    const email = sessionStorage.getItem('email')
 
-    if (email) {
-      setIsLoggedIn(true)
-      if (email) {
-        console.log('Setting admin true')
-        setIsUserAdmin(true)
-      }
-    } else {
-      setIsLoggedIn(false)
-    }
-  }, [checkChecked, isLoggedIn])
+  useEffect(() => {
+    getLocalStream() // Call async function
+  }, [])
 
   /**
    * Handles the change event of the checkbox.
@@ -92,35 +80,14 @@ export function NavBar() {
               </NavLink>
             </li>
             {/* Conditionally render the links */}
-            {!isLoggedIn ? (
+            {console.log('isLoggedIn', isLoggedIn)}
+            {isLoggedIn === 'user' ? (
               <>
-                <li>
-                  <NavLink to="/login" onClick={handleChecked}>
-                    Log In
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/signup" onClick={handleChecked}>
-                    Sign Up
-                  </NavLink>
-                </li>
-              </>
-            ) : (
-              <>
-                {/* Add links or components to render when the user is logged in */}
                 <li>
                   <NavLink to="/profile" onClick={handleChecked}>
                     Profile
                   </NavLink>
                 </li>
-                {/* Render Notification link only if user is admin */}
-                {isUserAdmin && (
-                  <li>
-                    <NavLink to="/notification" onClick={handleChecked}>
-                      Notification
-                    </NavLink>
-                  </li>
-                )}
                 <li>
                   <NavLink to="/logout" onClick={handleChecked}>
                     Log Out
@@ -132,6 +99,43 @@ export function NavBar() {
                     !
                   </p>
                 </div>
+              </>
+            ) : isLoggedIn === 'admin' ? (
+              <>
+                <li>
+                  <NavLink to="/profile" onClick={handleChecked}>
+                    Profile
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/notification" onClick={handleChecked}>
+                    Notification
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/logout" onClick={handleChecked}>
+                    Log Out
+                  </NavLink>
+                </li>
+                <div className="user-info">
+                  <p>
+                    Hello {JSON.parse(sessionStorage.getItem('email')).username}
+                    !
+                  </p>
+                </div>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to="/login" onClick={handleChecked}>
+                    Log In
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/signup" onClick={handleChecked}>
+                    Sign Up
+                  </NavLink>
+                </li>
               </>
             )}
           </ul>

@@ -14,12 +14,16 @@ const LogIn = () => {
   useEffect(() => {
     console.log('checking id the user is logged')
 
-    const email = sessionStorage.getItem('email')
+    const email = JSON.parse(sessionStorage.getItem('email'))
     console.log(email)
+    console.log(email, 'email from context' )
     if (email) {
-      setIsLoggedIn(true)
+      setIsLoggedIn('user')
+      if (email.admin === 'true') {
+        setIsLoggedIn('admin')
+      }
     } else {
-      setIsLoggedIn(false)
+      setIsLoggedIn('')
     }
   }, [setIsLoggedIn])
 
@@ -55,8 +59,15 @@ const LogIn = () => {
       sessionStorage.setItem('email', JSON.stringify(user)) // Store whole user and change session name from email to user
       // TODO: BEFORE PRODUCTION SAVE SESSIONS TO REDIS SO THAT IT IS SAfER
       console.log(sessionStorage.getItem(user))
-      console.log(user)
-      setIsLoggedIn(true)
+      console.log(resp.admin, 'admin?')
+      if (resp.admin) {
+        console.log('Setting login as admin')
+        setIsLoggedIn('admin')
+      } else { 
+        console.log('Setting login as user')
+        setIsLoggedIn('user')
+      }
+      console.log('Logged in as' + isLoggedIn)
     } else {
       setLogInFailedMessage('Login failed. Please try again!')
     }

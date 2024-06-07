@@ -9,19 +9,23 @@ const LogIn = () => {
   const navigate = useNavigate()
   const handleLogout = () => {
     sessionStorage.removeItem('email')
-    setIsLoggedIn(false) // Set isLoggedIn to false
+    setIsLoggedIn('') // Set isLoggedIn to ''
     console.log('Logout successful')
   }
 
   useEffect(() => {
     console.log('checking id the user is logged')
 
-    const email = sessionStorage.getItem('email')
+    const email = JSON.parse(sessionStorage.getItem('email'))
     console.log(email)
     if (email) {
-      setIsLoggedIn(true)
+      setIsLoggedIn('user')
+      console.log(email.admin, 'admin?')
+      if (email.admin) {
+        setIsLoggedIn('admin')
+      }
     } else {
-      setIsLoggedIn(false)
+      setIsLoggedIn('')
     }
   }, [setIsLoggedIn])
 
