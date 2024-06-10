@@ -13,6 +13,7 @@ import LogIn from '../LogIn/LogIn.jsx'
 import LogOut from '../LogOut/LogOut.jsx'
 import SignUp from '../SignUp/SignUp.jsx'
 import Notification from '../Notification/Notification.jsx'
+import VerifyEmail from '../Verification/VerifyEmail.jsx'
 import 'bootstrap/dist/css/bootstrap.css'
 
 
@@ -154,6 +155,7 @@ export function NavBar() {
             <Route path="/login" element={<LogIn />} />
             <Route path="/logout" element={<LogOut />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/verify" element={<VerifyEmail />} />
             <Route path="/" element={mic ? <Game /> : <TurnOnYourMic />} />
             <Route path="*" element={<PageNotFound />} />
             <Route path="/notification" element={<Notification />} />
@@ -161,5 +163,6 @@ export function NavBar() {
         </div>
       </Router>
     </div>
+    
   )
 }
