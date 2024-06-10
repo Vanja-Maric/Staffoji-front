@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react'
-import { LogInCss } from './Login.css'
+import { LogInCss } from './LogIn.css'
 import { useNavigate } from 'react-router-dom'
 import { useLogin } from '../Contexts/LoginContext'
 

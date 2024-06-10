@@ -9,10 +9,12 @@ import {
 } from 'react-router-dom'
 import { Home } from '../Home/Home'
 import { Game } from '../StaffojiGame/Game.jsx'
-import LogIn from '../Login/Login.jsx'
+import LogIn from '../LogIn/LogIn.jsx'
 import LogOut from '../LogOut/LogOut.jsx'
 import SignUp from '../SignUp/SignUp.jsx'
 import Notification from '../Notification/Notification.jsx'
+import 'bootstrap/dist/css/bootstrap.css'
+
 
 // import { HighScores } from '../HighScores'
 // import { SingUp } from '../SingUp'
@@ -52,94 +54,99 @@ export function NavBar() {
    */
   function handleChecked() {
     setChecked(!checkChecked)
-    console.log('handling checkChecked')
+
   }
 
   return (
     <div css={NavBarCss}>
       <Router basename="/">
-        <div className="navigation">
-          <input
-            type="checkbox"
-            id="checkbox_toggle"
-            checked={checkChecked}
-            onChange={() => setChecked(true)}
-          />
-          <label htmlFor="checkbox_toggle" className="hamburger">
-            &#9776;
-          </label>
-          <ul className="menu">
-            <li>
-              <NavLink to="/home" onClick={handleChecked}>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/" onClick={handleChecked}>
-                Game
-              </NavLink>
-            </li>
-            {/* Conditionally render the links */}
-            {console.log('isLoggedIn', isLoggedIn)}
-            {isLoggedIn === 'user' ? (
-              <>
-                <li>
-                  <NavLink to="/profile" onClick={handleChecked}>
-                    Profile
+        <nav className="navbar navbar-expand-lg bg-body-tertiary custom-navbar" >
+          <div className="container-fluid">
+            <a className="navbar-brand" href="/">
+            <img src="/favicon.ico" alt="Logo" width="30" height="24" />
+              Staffoji</a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/home" onClick={handleChecked}>
+                    Home
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink to="/logout" onClick={handleChecked}>
-                    Log Out
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/" onClick={handleChecked}>
+                    Game
                   </NavLink>
                 </li>
-                <div className="user-info">
-                  <p>
-                    Hello {JSON.parse(sessionStorage.getItem('email')).username}
-                    !
-                  </p>
-                </div>
-              </>
-            ) : isLoggedIn === 'admin' ? (
-              <>
-                <li>
-                  <NavLink to="/profile" onClick={handleChecked}>
-                    Profile
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/notification" onClick={handleChecked}>
-                    Notification
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/logout" onClick={handleChecked}>
-                    Log Out
-                  </NavLink>
-                </li>
-                <div className="user-info">
-                  <p>
-                    Hello {JSON.parse(sessionStorage.getItem('email')).username}
-                    !
-                  </p>
-                </div>
-              </>
-            ) : (
-              <>
-                <li>
-                  <NavLink to="/login" onClick={handleChecked}>
-                    Log In
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/signup" onClick={handleChecked}>
-                    Sign Up
-                  </NavLink>
-                </li>
-              </>
-            )}
-          </ul>
-        </div>
+                {isLoggedIn === 'user' ? (
+                  <>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="/profile" onClick={handleChecked}>
+                        Profile
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="/logout" onClick={handleChecked}>
+                        Log Out
+                      </NavLink>
+                    </li>
+                    <div className="user-info navbar-text">
+                      <p>
+                        Hello {JSON.parse(sessionStorage.getItem('email')).username}!
+                      </p>
+                    </div>
+                  </>
+                ) : isLoggedIn === 'admin' ? (
+                  <>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="/profile" onClick={handleChecked}>
+                        Profile
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="/notification" onClick={handleChecked}>
+                        Notification
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="/logout" onClick={handleChecked}>
+                        Log Out
+                      </NavLink>
+                    </li>
+                    <div className="user-info navbar-text">
+                      <p>
+                        Hello {JSON.parse(sessionStorage.getItem('email')).username}!
+                      </p>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="/login" onClick={handleChecked}>
+                        Log In
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="/signup" onClick={handleChecked}>
+                        Sign Up
+                      </NavLink>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
+          </div>
+        </nav>
 
         <div className="page-content">
           <Routes>
@@ -149,7 +156,7 @@ export function NavBar() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={mic ? <Game /> : <TurnOnYourMic />} />
             <Route path="*" element={<PageNotFound />} />
-            <Route path="/Notification" element={<Notification />} />
+            <Route path="/notification" element={<Notification />} />
           </Routes>
         </div>
       </Router>
