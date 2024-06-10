@@ -37,13 +37,20 @@
   }
 }
 */
-.div-container {
-  height: 60px;
+html, body {
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
 }
 
-@media (max-width: 768px) {
-  .div-container {
-    height: 40px;
-
-  }
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.app .content {
+  flex: 1; /* Allow content to grow and take up remaining space */
+}
+.custom-footer {
+  margin-top: auto;
 }

@@ -3,6 +3,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { HomeCss } from './Home.css.jsx'
 
+
 /**
  * Renders the Home component, which displays the main page of the Staffoji game.
  *
@@ -13,7 +14,7 @@ export function Home() {
     <div css={HomeCss}>
       <h1>Welcome to Staffoji!</h1>
 
-      <p>
+      <p className='game-instructions'>
         Tune up your instruments and get ready to play the game! Play the first
         note to make the character start moving. Once you stop playing, the
         character will advance towards the next musical clef. New notes will
@@ -21,7 +22,7 @@ export function Home() {
         correct note corresponding to the desired direction to move. Make sure
         to tune your instrument A = 442.
       </p>
-      <p>
+      <p className='developers'>
         My name is Vanja Maric and I am a software developer focused on web and
         Viola/violin teacher. I am passionate about music and technology and I
         am always looking for ways to combine the two. You can find me on{' '}
@@ -32,7 +33,7 @@ export function Home() {
           LinkedIn
         </a>
       </p>
-      <p>
+      <p className='developers'>
         Robert is an educated system developer with a deep passion for backend
         development, particularly using the Java programming language. He is
         responsible for the backend development in our project. You can find
@@ -50,6 +51,7 @@ export function Home() {
           <button>Play Game</button>
         </NavLink>
       </p>
+
       <p id="contributions">
         Attributions:
         <br />
