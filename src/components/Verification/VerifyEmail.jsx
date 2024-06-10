@@ -1,6 +1,7 @@
+/** @jsxImportSource @emotion/react */
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { VerifyEmailCss } from './VerifyEmail.css.jsx'
+import { VerifyEmailCss } from './VerifyEmail.css'
 
 const VerifyEmail = () => {
   const navigate = useNavigate()
@@ -42,11 +43,11 @@ const VerifyEmail = () => {
 
 
   return (
-      <div css={ VerifyEmailCss } className="container" >
+      <div css={VerifyEmailCss} className="container" >
           <h2 className="text-center mb-4">{message}</h2>
           <div className="text-center">
           {verificationSuccessful && (
-            <button className= {"custom"} onClick={handleGoToLogin}>Go to Login Page</button>
+            <button id="custom" onClick={handleGoToLogin}>Login</button>
           )}
         </div>
     </div>

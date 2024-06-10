@@ -124,7 +124,7 @@ export function NavBar() {
                         Log Out
                       </NavLink>
                     </li>
-                    <div className="user-info navbar-text">
+                    <div className="user-info navbar-text float-right">
                       <p>
                         Hello {JSON.parse(sessionStorage.getItem('email')).username}!
                       </p>
