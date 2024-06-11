@@ -5,11 +5,6 @@ import { css } from '@emotion/react'
  * CSS styles for the Home component.
  */
 export const HomeCss = css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 30px;
-
   h1 {
     margin: 0;
     font-size: 54px;
