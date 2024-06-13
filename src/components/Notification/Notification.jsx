@@ -14,10 +14,9 @@ const Notification = () => {
     e.preventDefault()
 
     const response = await fetch(
-      'http://localhost:8083/notification/',
+      'https://oyster-app-e4o6y.ondigitalocean.app/notification/',
       {
-        //TODO: change to the following line when deploying
-        // const response = await fetch('http://localhost:8083/notification/', {
+   
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

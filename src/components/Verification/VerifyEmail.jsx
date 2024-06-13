@@ -12,7 +12,7 @@ const VerifyEmail = () => {
     const urlParams = new URLSearchParams(window.location.search)
     const token = urlParams.get('token')
 
-    fetch(`http://localhost:8083/user/verify?token=${token}`, {
+    fetch(`https://oyster-app-e4o6y.ondigitalocean.app/user/verify?token=${token}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

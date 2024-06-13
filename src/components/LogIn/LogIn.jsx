@@ -36,8 +36,8 @@ const LogIn = () => {
     console.log('logging in')
     event.preventDefault()
 
-    // const response = await fetch('https://staffoji-game-last.onrender.com/user/login', {
-    const response = await fetch('http://localhost:8083/user/login', {
+     const response = await fetch('https://oyster-app-e4o6y.ondigitalocean.app/user/login', {
+  
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

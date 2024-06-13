@@ -20,9 +20,8 @@ const SignUp = () => {
   const handleSignUp = async (event) => {
     event.preventDefault()
     console.log('signing up')
-    // const response = await fetch('https://staffoji-game-last.onrender.com/user/', {
-    //TODO: change to the following line when deploying
-    const response = await fetch('http://localhost:8083/user/', {
+   
+    const response = await fetch('https://oyster-app-e4o6y.ondigitalocean.app/user/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
