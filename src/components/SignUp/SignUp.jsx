@@ -51,7 +51,7 @@ const SignUp = () => {
           {isSignedUp ? (
             <>
               <h2 className="text-center mb-4">
-                Sign up successful. Go to Log In!
+              Sign up successful. Please go to your email to verify your account.
               </h2>
               <div className="text-center">
                 {' '}
