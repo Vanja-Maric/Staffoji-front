@@ -8,8 +8,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 export const NavBarCss = css`
 .custom-navbar {
   background-color: #3b6621 !important;
-    font-size: 22px; /* Increase the font size */
-    padding: 10px; /* Increase the size of the navbar */
 }
 .custom-navbar .navbar-brand,
 .custom-navbar .nav-link,
