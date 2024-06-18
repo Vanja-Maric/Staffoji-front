@@ -41,15 +41,16 @@ const VerifyEmail = () => {
     navigate('/login')
   }
 
-
   return (
-      <div css={VerifyEmailCss} className="container" >
-          <h2 className="text-center mb-4">{message}</h2>
-          <div className="text-center">
-          {verificationSuccessful && (
-            <button id="custom" onClick={handleGoToLogin}>Login</button>
-          )}
-        </div>
+    <div css={VerifyEmailCss} className="container">
+      <h2 className="text-center mb-4">{message}</h2>
+      <div className="text-center">
+        {verificationSuccessful && (
+          <button id="custom" onClick={handleGoToLogin}>
+            Login
+          </button>
+        )}
+      </div>
     </div>
   )
 }

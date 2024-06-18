@@ -16,7 +16,6 @@ import Notification from '../Notification/Notification.jsx'
 import VerifyEmail from '../Verification/VerifyEmail.jsx'
 import 'bootstrap/dist/css/bootstrap.css'
 
-
 // import { HighScores } from '../HighScores'
 // import { SingUp } from '../SingUp'
 import { PageNotFound } from '../PageNotFound/PageNotFound'
@@ -45,7 +44,6 @@ export function NavBar() {
     }
   }
 
-
   useEffect(() => {
     getLocalStream() // Call async function
   }, [])
@@ -55,17 +53,17 @@ export function NavBar() {
    */
   function handleChecked() {
     setChecked(!checkChecked)
-
   }
 
   return (
     <div css={NavBarCss}>
       <Router basename="/">
-        <nav className="navbar navbar-expand-lg bg-body-tertiary custom-navbar" >
+        <nav className="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
           <div className="container-fluid">
             <a className="navbar-brand" href="/">
-            <img src="/favicon.ico" alt="Logo" width="30" height="24" />
-              Staffoji</a>
+              <img src="/favicon.ico" alt="Logo" width="30" height="24" />
+              Staffoji
+            </a>
             <button
               className="navbar-toggler"
               type="button"
@@ -77,10 +75,17 @@ export function NavBar() {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/home" onClick={handleChecked}>
+                  <NavLink
+                    className="nav-link"
+                    to="/home"
+                    onClick={handleChecked}
+                  >
                     Home
                   </NavLink>
                 </li>
@@ -92,53 +97,83 @@ export function NavBar() {
                 {isLoggedIn === 'user' ? (
                   <>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/profile" onClick={handleChecked}>
+                      <NavLink
+                        className="nav-link"
+                        to="/profile"
+                        onClick={handleChecked}
+                      >
                         Profile
                       </NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/logout" onClick={handleChecked}>
+                      <NavLink
+                        className="nav-link"
+                        to="/logout"
+                        onClick={handleChecked}
+                      >
                         Log Out
                       </NavLink>
                     </li>
                     <div className="user-info navbar-text">
                       <p>
-                        Hello {JSON.parse(sessionStorage.getItem('email')).username}!
+                        Hello{' '}
+                        {JSON.parse(sessionStorage.getItem('email')).username}!
                       </p>
                     </div>
                   </>
                 ) : isLoggedIn === 'admin' ? (
                   <>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/profile" onClick={handleChecked}>
+                      <NavLink
+                        className="nav-link"
+                        to="/profile"
+                        onClick={handleChecked}
+                      >
                         Profile
                       </NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/notification" onClick={handleChecked}>
+                      <NavLink
+                        className="nav-link"
+                        to="/notification"
+                        onClick={handleChecked}
+                      >
                         Notification
                       </NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/logout" onClick={handleChecked}>
+                      <NavLink
+                        className="nav-link"
+                        to="/logout"
+                        onClick={handleChecked}
+                      >
                         Log Out
                       </NavLink>
                     </li>
                     <div className="user-info navbar-text float-right">
                       <p>
-                        Hello {JSON.parse(sessionStorage.getItem('email')).username}!
+                        Hello{' '}
+                        {JSON.parse(sessionStorage.getItem('email')).username}!
                       </p>
                     </div>
                   </>
                 ) : (
                   <>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/login" onClick={handleChecked}>
+                      <NavLink
+                        className="nav-link"
+                        to="/login"
+                        onClick={handleChecked}
+                      >
                         Log In
                       </NavLink>
                     </li>
                     <li className="nav-item">
-                      <NavLink className="nav-link" to="/signup" onClick={handleChecked}>
+                      <NavLink
+                        className="nav-link"
+                        to="/signup"
+                        onClick={handleChecked}
+                      >
                         Sign Up
                       </NavLink>
                     </li>
@@ -163,6 +198,5 @@ export function NavBar() {
         </div>
       </Router>
     </div>
-    
   )
 }

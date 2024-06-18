@@ -15,4 +15,4 @@ module.exports = {
     "\\.(css|less|sass|scss)$": "<rootDir>/test/mocks/styleMock.js",
     "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/mocks/fileMock.js"
   }
-};
+}

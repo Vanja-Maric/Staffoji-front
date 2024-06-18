@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { HomeCss } from './Home.css.jsx';
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { HomeCss } from './Home.css.jsx'
 
 /**
  * Renders the Home component, which displays the main page of the Staffoji game.
@@ -56,14 +56,14 @@ export function Home() {
         <br />
         Cello, Bass:{' '}
         <a href="https://www.flaticon.com/free-icons/cello" title="cello icons">
-          Cello icons created by Leremy - Flaticon; 
+          Cello icons created by Leremy - Flaticon;
         </a>
         Violin:{' '}
         <a
           href="https://www.flaticon.com/free-icons/violin"
           title="violin icons"
         >
-          Violin icons created by khulqi Rosyid - Flaticon; 
+          Violin icons created by khulqi Rosyid - Flaticon;
         </a>
         Guitar:{' '}
         <a
@@ -106,5 +106,5 @@ export function Home() {
         </a>
       </p>
     </div>
-  );
+  )
 }

@@ -16,7 +16,7 @@ const LogIn = () => {
 
     const email = JSON.parse(sessionStorage.getItem('email'))
     console.log(email)
-    console.log(email, 'email from context' )
+    console.log(email, 'email from context')
     if (email) {
       setIsLoggedIn('user')
       if (email.admin === 'true') {
@@ -63,7 +63,7 @@ const LogIn = () => {
       if (resp.admin) {
         console.log('Setting login as admin')
         setIsLoggedIn('admin')
-      } else { 
+      } else {
         console.log('Setting login as user')
         setIsLoggedIn('user')
       }
