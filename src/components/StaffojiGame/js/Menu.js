@@ -238,7 +238,7 @@ Make sure to tune your instrument A = 442.`,
     this.menuButton.setVisible(false)
 
     // Fetch leaderboard data from the server
-    const response = await fetch('http://localhost:8083/leaderboard/')
+    const response = await fetch('https://oyster-app-e4o6y.ondigitalocean.app/leaderboard/')
     //TODO:  change to the following line when deploying
     /*const response = await fetch(
       'https://staffoji-game-last.onrender.com/leaderboard/'

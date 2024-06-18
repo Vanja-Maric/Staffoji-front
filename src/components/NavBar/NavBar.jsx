@@ -30,7 +30,7 @@ import { useLogin } from '../Contexts/LoginContext'
  */
 export function NavBar() {
   const [mic, setMic] = useState(false)
-  const { isLoggedIn, setIsLoggedIn } = useLogin()
+  const { isLoggedIn } = useLogin()
   const [checkChecked, setChecked] = useState(false)
 
   // Get michrophon acess - If it is not turned on, do not open game page
